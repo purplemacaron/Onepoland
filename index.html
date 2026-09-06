@@ -409,9 +409,6 @@ function renderPiles(){
     b.style.transform=`translate(${i*3}px,${-i*3}px)`;
     dp.appendChild(b);
   }
-  if(!S.deck.length)dp.innerHTML='<div class="empty"></div>';
-  $('#deckCount').textContent=S.deck.length+'장';
-
   const dis=$('#discardPile');dis.innerHTML='';
   const shown=S.discard.slice(-4),off=S.rots.length-shown.length;
   shown.forEach((c,i)=>{
@@ -439,7 +436,6 @@ function renderHands(){
     el.addEventListener('click',()=>tryPlay(c,el));
     fan.appendChild(el);
   });
-  $('#youCount').textContent=n+'장';
 
   const cf=$('#cpuFan');cf.innerHTML='';
   const ch=S.hands.cpu,m=ch.length;
@@ -452,7 +448,6 @@ function renderHands(){
     b.style.zIndex=i+1;
     cf.appendChild(b);
   });
-  $('#cpuCount').textContent=m+'장';
 }
 
 function updateHUD(){
